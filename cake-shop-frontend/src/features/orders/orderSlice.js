@@ -119,7 +119,19 @@ export const cancelOrder = createAsyncThunk(
     }
 );
 
-
+export const deleteOrder = createAsyncThunk(
+    "orders/delete",
+    async (orderId, thunkAPI) => {
+        try {
+            const res = await api.delete(`/orders/${orderId}`);
+            return res.data.order;
+        } catch (err) {
+            return thunkAPI.rejectWithValue(
+                err.response?.data?.message || "Order archive failed"
+            );
+        }
+    }
+);
 
 
 
@@ -171,7 +183,7 @@ const orderSlice = createSlice({
             .addCase(placeCustomCakeOrder.fulfilled, (state, action) => {
                 state.loading = false;
                 state.orders.unshift(action.payload);
-               
+
             })
             .addCase(placeCustomCakeOrder.rejected, (state, action) => {
                 state.loading = false;
@@ -211,13 +223,34 @@ const orderSlice = createSlice({
             .addCase(cancelOrder.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.payload;
-            });
+            })
+            // ARCHIVE ORDER
+            .addCase(deleteOrder.pending, (state) => {
+                state.loading = true;
+                state.error = null;
+            })
+            .addCase(deleteOrder.fulfilled, (state, action) => {
+                state.loading = false;
 
+                // Update the order in My Orders
+                state.orders = state.orders.map((order) =>
+                    order._id === action.payload._id ? action.payload : order
+                );
+
+                // Update the detail view if this order is open
+                if (state.order?._id === action.payload._id) {
+                    state.order = action.payload;
+                }
+            })
+            .addCase(deleteOrder.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.payload;
+            });
 
 
 
     },
 });
 
-export const { clearOrder } = orderSlice.actions;
+export const { clearError } = orderSlice.actions;
 export default orderSlice.reducer;

@@ -231,6 +231,47 @@ exports.cancelOrder = async (req, res) => {
 };
 
 
+// @desc Archive a delivered order for the logged-in user
+// @route DELETE /api/orders/:id
+// @access User
+exports.deleteOrder = async (req, res) => {
+  try {
+    const order = await Order.findOne({
+      _id: req.params.id,
+      user: req.user._id,
+    });
+
+    if (!order) {
+      return res.status(404).json({
+        message: "Order not found",
+      });
+    }
+
+    // Only delivered orders can be archived
+    if (order.status !== "delivered") {
+      return res.status(400).json({
+        message: "Only delivered orders can be archived",
+      });
+    }
+
+    // Soft delete: preserve the order in the database
+    order.status = "deleted";
+    await order.save();
+
+    return res.json({
+      message: "Order archived successfully",
+      order,
+    });
+  } catch (error) {
+    console.error("ARCHIVE ORDER ERROR:", error);
+
+    return res.status(500).json({
+      message: "Unable to archive order",
+    });
+  }
+};
+
+
 /* ==========================================
    PLACE CART ORDER (MULTIPLE FIXED CAKES)
    POST /api/orders/cart

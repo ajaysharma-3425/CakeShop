@@ -8,6 +8,7 @@ const {
   getOrderById,
   getMyOrders,
   cancelOrder,          // 🔥 NEW
+  deleteOrder,
 } = require("../controllers/orderController");
 
 const { protect } = require("../middleware/authMiddleware");
@@ -30,6 +31,8 @@ router.post("/custom", protect, placeCustomCakeOrder);
 // 🔹 Cancel Order (USER)
 router.post("/:id/cancel", protect, cancelOrder);
 
+// Archive a delivered order
+router.delete("/:id", protect, deleteOrder);
 
 // 🔹 Order Detail
 router.get("/:id", protect, getOrderById);
