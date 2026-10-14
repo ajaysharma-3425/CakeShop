@@ -9,11 +9,13 @@ import {
   User,
   Cake,
   CheckCircle,
-  Instagram,
-  Facebook,
-  Twitter,
   ChevronDown,
 } from "lucide-react";
+import {
+  FaInstagram,
+  FaFacebookF,
+  FaTwitter,
+} from "react-icons/fa";
 
 /* ---------- Cake-shop typography + small custom effects ---------- */
 const shopStyles = `
@@ -212,9 +214,9 @@ const ContactUs = () => {
             const Tag = info.href ? "a" : "div";
             const linkProps = info.href
               ? {
-                  href: info.href,
-                  ...(info.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {}),
-                }
+                href: info.href,
+                ...(info.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {}),
+              }
               : {};
             return (
               <Tag
@@ -321,11 +323,10 @@ const ContactUs = () => {
                             setFormData((prev) => ({ ...prev, occasion: active ? "" : o.value }))
                           }
                           aria-pressed={active}
-                          className={`inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-bold border-2 transition ${
-                            active
+                          className={`inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-bold border-2 transition ${active
                               ? "bg-gradient-to-r from-[#C9A227] to-[#D4AF37] text-[#2E1B0F] border-transparent shadow-lg shadow-[#C9A227]/30"
                               : "bg-[#FFFDF9] text-[#8B6914] border-[#E8E0D5] hover:bg-[#FDF8E8] hover:border-[#E8D58A]"
-                          }`}
+                            }`}
                         >
                           <span>{o.emoji}</span>
                           {o.value}
@@ -410,9 +411,8 @@ const ContactUs = () => {
                   return (
                     <div
                       key={faq.question}
-                      className={`rounded-2xl border-2 transition-colors ${
-                        open ? "border-[#C9A227] bg-[#FDF8E8]/50" : "border-[#E8E0D5] hover:border-[#C9A227]/50"
-                      }`}
+                      className={`rounded-2xl border-2 transition-colors ${open ? "border-[#C9A227] bg-[#FDF8E8]/50" : "border-[#E8E0D5] hover:border-[#C9A227]/50"
+                        }`}
                     >
                       <button
                         type="button"
@@ -422,9 +422,8 @@ const ContactUs = () => {
                       >
                         <span className="font-bold text-[#3E2C1C]">{faq.question}</span>
                         <span
-                          className={`h-8 w-8 shrink-0 rounded-full flex items-center justify-center transition-all duration-300 ${
-                            open ? "bg-gradient-to-br from-[#C9A227] to-[#D4AF37] text-[#2E1B0F] rotate-180" : "bg-[#FDF8E8] text-[#8B6914]"
-                          }`}
+                          className={`h-8 w-8 shrink-0 rounded-full flex items-center justify-center transition-all duration-300 ${open ? "bg-gradient-to-br from-[#C9A227] to-[#D4AF37] text-[#2E1B0F] rotate-180" : "bg-[#FDF8E8] text-[#8B6914]"
+                            }`}
                         >
                           <ChevronDown className="w-4 h-4" />
                         </span>
@@ -448,9 +447,9 @@ const ContactUs = () => {
                   <h4 className="font-bold mb-3">Follow Our Sweet Journey</h4>
                   <div className="flex gap-3">
                     {[
-                      { icon: Instagram, label: "Instagram" },
-                      { icon: Facebook, label: "Facebook" },
-                      { icon: Twitter, label: "Twitter" },
+                      { icon: FaInstagram, label: "Instagram" },
+                      { icon: FaFacebookF, label: "Facebook" },
+                      { icon: FaTwitter, label: "Twitter" },
                     ].map(({ icon: Icon, label }) => (
                       <a
                         key={label}

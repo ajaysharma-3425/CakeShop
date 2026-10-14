@@ -11,42 +11,48 @@ import {
   Send,
   CheckCircle,
   Heart,
-  MessageCircle
+  MessageCircle,
 } from "lucide-react";
+import { FaFacebookF, FaTwitter } from "react-icons/fa";
 
-/* ============================================================
-   Small inline social icons (brand icons are not in all lucide versions)
-   ============================================================ */
+// Instagram icon
 const InstagramIcon = (props) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
     <rect x="3" y="3" width="18" height="18" rx="5" />
     <circle cx="12" cy="12" r="4" />
     <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" />
   </svg>
 );
 
-const FacebookIcon = (props) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-  </svg>
-);
-
-/* ============================================================
-   Animation presets
-   ============================================================ */
-const SPRING = { type: "spring", bounce: 0.2, visualDuration: 0.5 };
+const SPRING = {
+  type: "spring",
+  bounce: 0.2,
+  visualDuration: 0.5,
+};
 
 const container = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.12 } }
+  show: { transition: { staggerChildren: 0.12 } },
 };
 
 const item = {
   hidden: { opacity: 0, y: 24, filter: "blur(6px)" },
-  show: { opacity: 1, y: 0, filter: "blur(0px)", transition: SPRING }
+  show: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: SPRING,
+  },
 };
 
-/* Floating sprinkles / crumbs in the background */
 const SPRINKLES = [
   { left: "6%", top: "18%", size: 10, color: "#FFD58A", delay: 0, dur: 5 },
   { left: "18%", top: "70%", size: 7, color: "#F5E6D3", delay: 1.2, dur: 6 },
@@ -54,19 +60,21 @@ const SPRINKLES = [
   { left: "52%", top: "78%", size: 11, color: "#FFF8E7", delay: 2, dur: 6.5 },
   { left: "68%", top: "22%", size: 7, color: "#FFD58A", delay: 0.3, dur: 5.2 },
   { left: "82%", top: "64%", size: 9, color: "#F5E6D3", delay: 1.6, dur: 6 },
-  { left: "93%", top: "30%", size: 8, color: "#D97706", delay: 0.9, dur: 5.8 }
+  { left: "93%", top: "30%", size: 8, color: "#D97706", delay: 0.9, dur: 5.8 },
 ];
 
-/* ============================================================
-   Footer pieces
-   ============================================================ */
 function FooterLink({ to, children }) {
   return (
     <li>
-      <Link to={to} className="group inline-flex items-center gap-2 text-[#F5E6D3] hover:text-white transition-colors">
+      <Link
+        to={to}
+        className="group inline-flex items-center gap-2 text-[#F5E6D3] transition-colors hover:text-white"
+      >
         <span className="relative">
-          <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">{children}</span>
-          <span className="absolute left-0 -bottom-0.5 h-px w-full origin-left scale-x-0 bg-[#FFD58A] transition-transform duration-300 group-hover:scale-x-100" />
+          <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">
+            {children}
+          </span>
+          <span className="absolute -bottom-0.5 left-0 h-px w-full origin-left scale-x-0 bg-[#FFD58A] transition-transform duration-300 group-hover:scale-x-100" />
         </span>
       </Link>
     </li>
@@ -79,11 +87,16 @@ function ContactRow({ icon: Icon, children, href }) {
       <span className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-white/10 text-[#FFD58A] transition-colors duration-200 group-hover:bg-[#FFF8E7] group-hover:text-[#6B4423]">
         <Icon className="h-4 w-4" />
       </span>
-      <span className="text-sm text-[#F5E6D3] group-hover:text-white transition-colors">{children}</span>
+      <span className="text-sm text-[#F5E6D3] transition-colors group-hover:text-white">
+        {children}
+      </span>
     </>
   );
+
   return href ? (
-    <a href={href} className="group flex items-start gap-3">{content}</a>
+    <a href={href} className="group flex items-start gap-3">
+      {content}
+    </a>
   ) : (
     <div className="group flex items-start gap-3">{content}</div>
   );
@@ -99,7 +112,7 @@ function SocialButton({ href, label, children }) {
       whileHover={{ y: -4, scale: 1.1 }}
       whileTap={{ scale: 0.92 }}
       transition={SPRING}
-      className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-[#FFF8E7] ring-1 ring-white/15 hover:bg-[#FFF8E7] hover:text-[#6B4423] transition-colors"
+      className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-[#FFF8E7] ring-1 ring-white/15 transition-colors hover:bg-[#FFF8E7] hover:text-[#6B4423]"
     >
       {children}
     </motion.a>
@@ -112,24 +125,28 @@ function Newsletter() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (!email.trim()) return;
-    // TODO: connect to your newsletter API here
+
+    // Connect your newsletter API here when ready.
     setDone(true);
     setEmail("");
+
     setTimeout(() => setDone(false), 3500);
   };
 
   return (
     <form onSubmit={handleSubmit} className="relative">
-      <div className="flex items-center rounded-full bg-white/10 p-1 ring-1 ring-white/20 focus-within:ring-[#FFD58A] transition-shadow">
+      <div className="flex items-center rounded-full bg-white/10 p-1 ring-1 ring-white/20 transition-shadow focus-within:ring-[#FFD58A]">
         <input
           type="email"
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Your email address"
-          className="min-w-0 flex-1 bg-transparent px-4 py-2 text-sm text-[#FFF8E7] placeholder-[#BCAAA4] outline-none"
+          className="min-w-0 flex-1 bg-transparent px-4 py-2 text-sm text-[#FFF8E7] outline-none placeholder:text-[#BCAAA4]"
         />
+
         <motion.button
           type="submit"
           whileHover={{ scale: 1.05 }}
@@ -159,16 +176,16 @@ function Newsletter() {
   );
 }
 
-/* ============================================================
-   Footer
-   ============================================================ */
 const Footer = () => {
   const year = new Date().getFullYear();
-  const scrollTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
+  const scrollTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <footer className="relative mt-20 overflow-hidden bg-gradient-to-br from-[#5D3A1A] via-[#6B4423] to-[#8B5E3C] text-[#FFF8E7]">
-      {/* Wavy cream top edge (blends into the page background) */}
+      {/* Wavy cream top edge */}
       <div className="pointer-events-none absolute inset-x-0 top-0 -translate-y-px">
         <motion.svg
           viewBox="0 0 1440 80"
@@ -187,16 +204,35 @@ const Footer = () => {
       </div>
 
       {/* Floating sprinkles */}
-      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+      <div
+        className="pointer-events-none absolute inset-0"
+        aria-hidden="true"
+      >
         {SPRINKLES.map((s, i) => (
           <motion.span
             key={i}
             className="absolute rounded-full opacity-40"
-            style={{ left: s.left, top: s.top, width: s.size, height: s.size, backgroundColor: s.color }}
-            animate={{ y: [0, -14, 0], x: [0, 6, 0], rotate: [0, 180, 360] }}
-            transition={{ duration: s.dur, delay: s.delay, repeat: Infinity, ease: "easeInOut" }}
+            style={{
+              left: s.left,
+              top: s.top,
+              width: s.size,
+              height: s.size,
+              backgroundColor: s.color,
+            }}
+            animate={{
+              y: [0, -14, 0],
+              x: [0, 6, 0],
+              rotate: [0, 180, 360],
+            }}
+            transition={{
+              duration: s.dur,
+              delay: s.delay,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
           />
         ))}
+
         <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-[#FFD58A]/10 blur-3xl" />
         <div className="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-black/20 blur-3xl" />
       </div>
@@ -211,15 +247,19 @@ const Footer = () => {
           className="mb-14 grid items-center gap-6 rounded-3xl bg-white/10 p-6 ring-1 ring-white/15 backdrop-blur-sm md:grid-cols-2 md:p-8"
         >
           <div>
-            <h3 className="text-xl font-bold sm:text-2xl">Get a slice of the sweet news</h3>
+            <h3 className="text-xl font-bold sm:text-2xl">
+              Get a slice of the sweet news
+            </h3>
             <p className="mt-1 text-sm text-[#F5E6D3]">
-              New flavours, festive specials and exclusive offers, straight to your inbox.
+              New flavours, festive specials and exclusive offers, straight to
+              your inbox.
             </p>
           </div>
+
           <Newsletter />
         </motion.div>
 
-        {/* Main grid */}
+        {/* Main footer grid */}
         <motion.div
           variants={container}
           initial="hidden"
@@ -228,7 +268,10 @@ const Footer = () => {
           className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4"
         >
           {/* Brand */}
-          <motion.div variants={item} className="sm:col-span-2 lg:col-span-1">
+          <motion.div
+            variants={item}
+            className="sm:col-span-2 lg:col-span-1"
+          >
             <Link to="/" className="group inline-flex items-center gap-3">
               <motion.div
                 whileHover={{ rotate: [0, -12, 12, 0] }}
@@ -237,25 +280,54 @@ const Footer = () => {
               >
                 <Cake className="h-6 w-6 text-[#6B4423]" />
               </motion.div>
+
               <div>
                 <p className="text-2xl font-bold tracking-tight">CakeZone</p>
-                <p className="text-xs text-[#F5E6D3]">Sweet Delights, Fresh Every Day</p>
+                <p className="text-xs text-[#F5E6D3]">
+                  Sweet Delights, Fresh Every Day
+                </p>
               </div>
             </Link>
+
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-[#F5E6D3]">
-              Handcrafted cakes baked fresh with love, for birthdays, weddings and every little celebration in between.
+              Handcrafted cakes baked fresh with love, for birthdays, weddings
+              and every little celebration in between.
             </p>
+
             <div className="mt-5 flex items-center gap-3">
-              <SocialButton href="https://instagram.com" label="Instagram"><InstagramIcon className="h-5 w-5" /></SocialButton>
-              <SocialButton href="https://facebook.com" label="Facebook"><FacebookIcon className="h-5 w-5" /></SocialButton>
-              <SocialButton href="https://wa.me/919876543210" label="WhatsApp"><MessageCircle className="h-5 w-5" /></SocialButton>
-              <SocialButton href="mailto:hello@cakezone.com" label="Email"><Mail className="h-5 w-5" /></SocialButton>
+              <SocialButton
+                href="https://instagram.com"
+                label="Instagram"
+              >
+                <InstagramIcon className="h-5 w-5" />
+              </SocialButton>
+
+              <SocialButton href="https://facebook.com" label="Facebook">
+                <FaFacebookF className="h-5 w-5" />
+              </SocialButton>
+
+              <SocialButton href="https://twitter.com" label="Twitter">
+                <FaTwitter className="h-5 w-5" />
+              </SocialButton>
+
+              <SocialButton
+                href="https://wa.me/919876543210"
+                label="WhatsApp"
+              >
+                <MessageCircle className="h-5 w-5" />
+              </SocialButton>
+
+              <SocialButton href="mailto:hello@cakezone.com" label="Email">
+                <Mail className="h-5 w-5" />
+              </SocialButton>
             </div>
           </motion.div>
 
           {/* Explore */}
           <motion.div variants={item}>
-            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-[#FFD58A]">Explore</h4>
+            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-[#FFD58A]">
+              Explore
+            </h4>
             <ul className="space-y-3 text-sm">
               <FooterLink to="/">Home</FooterLink>
               <FooterLink to="/cakes">All Cakes</FooterLink>
@@ -266,7 +338,9 @@ const Footer = () => {
 
           {/* Company */}
           <motion.div variants={item}>
-            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-[#FFD58A]">Company</h4>
+            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-[#FFD58A]">
+              Company
+            </h4>
             <ul className="space-y-3 text-sm">
               <FooterLink to="/about">About Us</FooterLink>
               <FooterLink to="/contact">Contact Us</FooterLink>
@@ -277,12 +351,25 @@ const Footer = () => {
 
           {/* Contact */}
           <motion.div variants={item}>
-            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-[#FFD58A]">Visit & Call</h4>
+            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-[#FFD58A]">
+              Visit &amp; Call
+            </h4>
             <div className="space-y-4">
-              <ContactRow icon={Phone} href="tel:+919876543210">+91 98765 43210</ContactRow>
-              <ContactRow icon={Mail} href="mailto:hello@cakezone.com">hello@cakezone.com</ContactRow>
-              <ContactRow icon={MapPin}>Your Street, Your City, India</ContactRow>
-              <ContactRow icon={Clock}>Open daily, 9:00 AM – 10:00 PM</ContactRow>
+              <ContactRow icon={Phone} href="tel:+919876543210">
+                +91 98765 43210
+              </ContactRow>
+
+              <ContactRow icon={Mail} href="mailto:hello@cakezone.com">
+                hello@cakezone.com
+              </ContactRow>
+
+              <ContactRow icon={MapPin}>
+                Your Street, Your City, India
+              </ContactRow>
+
+              <ContactRow icon={Clock}>
+                Open daily, 9:00 AM – 10:00 PM
+              </ContactRow>
             </div>
           </motion.div>
         </motion.div>
