@@ -16,6 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 // Allow local frontend and the deployed Vercel frontend
 const allowedOrigins = [
   "http://localhost:5173",
+  "https://cakeshopnew.vercel.app",
   ...(process.env.FRONTEND_URL || "")
     .split(",")
     .map((url) => url.trim())
