@@ -269,7 +269,7 @@ const Profile = () => {
           {/* Admin Profile Heading */}
           <div className="text-center mb-10 cs-rise">
             <p className="cs-script text-2xl text-[#8B6914]">
-              CakeZone Management
+              CakeCraft Management
             </p>
 
             <h1 className="cs-display text-4xl md:text-5xl font-extrabold mt-2">
@@ -278,7 +278,7 @@ const Profile = () => {
 
             <p className="text-[#8B7355] mt-3 max-w-2xl mx-auto">
               Manage your administrator account, access store operations,
-              and monitor your CakeZone management responsibilities.
+              and monitor your CakeCraft management responsibilities.
             </p>
           </div>
 

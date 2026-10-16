@@ -242,7 +242,7 @@ const PaymentPage = () => {
                 <span className="text-[#8B7355] font-semibold">Shop</span>
                 <span className="font-bold text-[#3E2C1C] flex items-center gap-2">
                   <span className="w-2 h-2 bg-[#C9A227] rounded-full"></span>
-                  CakeZone 🎂
+                  CakeCraft 🎂
                 </span>
               </div>
               <div className="flex items-center justify-between py-3 border-b border-[#F5F0E8]">
@@ -285,7 +285,7 @@ const PaymentPage = () => {
                 <div className="mb-8">
                   <div className="bg-[#F5F0E8] border-2 border-dashed border-[#E8E0D5] rounded-2xl p-6 mb-4 flex justify-center">
                     <img
-                      src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=cakezone@upi&margin=10&bgcolor=ffffff&color=1f2937"
+                      src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=CakeCraft@upi&margin=10&bgcolor=ffffff&color=1f2937"
                       alt="QR Code"
                       className="w-full max-w-[200px] rounded-xl shadow-sm border-2 border-white"
                     />
@@ -294,7 +294,7 @@ const PaymentPage = () => {
                   <div className="text-center">
                     <p className="text-xs font-bold uppercase tracking-wider text-[#8B7355] mb-1">UPI ID</p>
                     <p className="text-lg font-extrabold text-[#3E2C1C] bg-[#F5F0E8] py-2 px-6 rounded-full inline-block border border-[#E8E0D5]">
-                      cakezone@upi
+                      CakeCraft@upi
                     </p>
                   </div>
                 </div>

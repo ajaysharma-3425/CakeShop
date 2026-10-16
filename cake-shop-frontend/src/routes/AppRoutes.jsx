@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Home from "../pages/Home";
@@ -24,15 +25,30 @@ import AdminUsers from "../pages/Admin/AdminUsers";
 import Cart from "../pages/Cart";
 
 
+// Automatically scroll to the top whenever the route changes
+const ScrollToTop = () => {
+  const { pathname, key } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname, key]);
+
+  return null;
+};
+
 const AppRoutes = () => {
   return (
+  
     <BrowserRouter>
+      <ScrollToTop />
+
       <Toaster
         position="top-right"
         toastOptions={{
           duration: 4000,
         }}
       />
+
       <Navbar />
 
       <Routes>

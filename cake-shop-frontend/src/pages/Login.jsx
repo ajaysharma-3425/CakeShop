@@ -9,7 +9,7 @@ const shopStyles = `
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Pacifico&family=Quicksand:wght@400;500;600;700&display=swap');
 
 .cs-body    { font-family: 'Quicksand', system-ui, sans-serif; }
-.cs-display { font-family: 'Playfair Display', Georgia, serif; } /* Bade Letters ke liye */
+.cs-display { font-family: 'Playfair Display', Georgia, serif; }
 .cs-script  { font-family: 'Pacifico', cursive; }
 
 .cs-frosting-top {
@@ -79,19 +79,10 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormErrors({});
-    
+
     if (validateForm()) {
       dispatch(login({ email, password }));
     }
-  };
-
-  const handleDemoLogin = (role) => {
-    const credentials = {
-      admin: { email: "admin@demo.com", password: "demo123" },
-      user: { email: "user@demo.com", password: "demo123" },
-    };
-    
-    dispatch(login(credentials[role]));
   };
 
   return (
@@ -100,11 +91,9 @@ const Login = () => {
 
       {/* LEFT SIDE - Branding & Visuals (Hidden on mobile) */}
       <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-[#4A2E1B] via-[#5C3A21] to-[#2E1B0F] relative overflow-hidden flex-col justify-center px-16 text-[#FDFBF7]">
-        {/* Decorative Elements */}
         <div className="absolute top-[-10%] left-[-10%] w-64 h-64 bg-[#C9A227] opacity-10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-[-10%] right-[-10%] w-80 h-80 bg-[#C9A227] opacity-10 rounded-full blur-3xl"></div>
-        
-        {/* Floating Sprinkles */}
+
         {SPRINKLES.map((s, i) => (
           <span
             key={i}
@@ -118,14 +107,14 @@ const Login = () => {
             <div className="w-14 h-14 bg-gradient-to-br from-[#C9A227] to-[#D4AF37] rounded-2xl flex items-center justify-center text-3xl shadow-lg border-2 border-[#E8D58A]">
               🎂
             </div>
-            <h1 className="cs-display text-3xl font-extrabold tracking-wide">CakeZone</h1>
+            <h1 className="cs-display text-3xl font-extrabold tracking-wide">CakeCraft</h1>
           </div>
-          
+
           <h2 className="cs-display text-4xl sm:text-5xl font-extrabold leading-tight mb-4">
             Welcome back to <br />
             <span className="cs-script text-[#E8C84A]">sweetness.</span>
           </h2>
-          
+
           <p className="text-[#E8E0D5] text-lg mb-10 leading-relaxed">
             Sign in to track your orders, discover new artisan cakes, and continue your delicious journey with us.
           </p>
@@ -148,19 +137,18 @@ const Login = () => {
           </div>
         </div>
 
-        {/* Frosting Bottom Edge */}
         <div className="cs-frosting-bottom absolute bottom-0 left-0 right-0"></div>
       </div>
 
       {/* RIGHT SIDE - Login Form */}
       <div className="w-full lg:w-1/2 flex items-center justify-center p-6 sm:p-12 bg-[#FDFBF7]">
         <div className="w-full max-w-md cs-rise">
-          {/* Mobile Logo (Only shows on small screens) */}
+          {/* Mobile Logo */}
           <div className="lg:hidden flex flex-col items-center mb-8">
             <div className="w-16 h-16 bg-gradient-to-br from-[#C9A227] to-[#D4AF37] rounded-2xl flex items-center justify-center text-3xl shadow-lg border-2 border-[#E8D58A] mb-3">
               🎂
             </div>
-            <h1 className="cs-display text-2xl font-extrabold text-[#3E2C1C]">CakeZone</h1>
+            <h1 className="cs-display text-2xl font-extrabold text-[#3E2C1C]">CakeCraft</h1>
             <p className="cs-script text-[#8B6914] mt-1">Sweet Delights, Fresh Every Day</p>
           </div>
 
@@ -260,25 +248,17 @@ const Login = () => {
               )}
             </div>
 
-            {/* Remember Me & Forgot Password */}
-            <div className="flex items-center justify-between pt-1">
-              <div className="flex items-center">
-                <input
-                  id="remember-me"
-                  name="remember-me"
-                  type="checkbox"
-                  className="h-4 w-4 text-[#C9A227] focus:ring-[#C9A227] border-[#E8E0D5] rounded"
-                />
-                <label htmlFor="remember-me" className="ml-2 block text-sm font-semibold text-[#8B7355]">
-                  Remember me
-                </label>
-              </div>
-              <button
-                type="button"
-                className="text-sm font-bold text-[#8B6914] hover:text-[#C9A227] transition-colors"
-              >
-                Forgot password?
-              </button>
+            {/* Remember Me */}
+            <div className="flex items-center pt-1">
+              <input
+                id="remember-me"
+                name="remember-me"
+                type="checkbox"
+                className="h-4 w-4 text-[#C9A227] focus:ring-[#C9A227] border-[#E8E0D5] rounded"
+              />
+              <label htmlFor="remember-me" className="ml-2 block text-sm font-semibold text-[#8B7355]">
+                Remember me
+              </label>
             </div>
 
             {/* Submit Button */}
@@ -302,42 +282,25 @@ const Login = () => {
             </button>
           </form>
 
-          {/* Demo Login Section */}
+          {/* Footer Links */}
           <div className="mt-8 pt-8 border-t-2 border-dashed border-[#E8E0D5]">
-            <p className="text-center text-sm font-bold text-[#8B7355] mb-4 uppercase tracking-wider">
-              Want to try a demo account?
-            </p>
-            <div className="grid grid-cols-2 gap-3">
-              <button
-                type="button"
-                onClick={() => handleDemoLogin("user")}
-                disabled={loading}
-                className="inline-flex justify-center items-center py-3 px-4 border-2 border-[#E8E0D5] rounded-xl shadow-sm text-sm font-bold text-[#5C3A21] bg-[#FFFDF9] hover:bg-[#F5F0E8] hover:border-[#C9A227]/50 transition-all disabled:opacity-50"
-              >
-                Demo User
-              </button>
-              <button
-                type="button"
-                onClick={() => handleDemoLogin("admin")}
-                disabled={loading}
-                className="inline-flex justify-center items-center py-3 px-4 border-2 border-[#4A2E1B] rounded-xl shadow-sm text-sm font-bold text-[#FDFBF7] bg-[#4A2E1B] hover:bg-[#2E1B0F] transition-all disabled:opacity-50"
-              >
-                Demo Admin
-              </button>
-            </div>
-          </div>
-
-          {/* Sign Up Link */}
-          <div className="mt-8 text-center">
-            <p className="text-sm font-semibold text-[#8B7355]">
-              Don't have an account?{" "}
+            <div className="flex flex-col items-center gap-3">
               <Link
-                to="/register"
-                className="font-bold text-[#8B6914] hover:text-[#C9A227] transition-colors underline decoration-2 underline-offset-4"
+                to="/forgot-password"
+                className="text-sm font-bold text-[#8B6914] hover:text-[#C9A227] transition-colors underline decoration-2 underline-offset-4"
               >
-                Sign up here
+                Forgot password?
               </Link>
-            </p>
+              <p className="text-sm font-semibold text-[#8B7355]">
+                
+                <Link
+                  to="/register"
+                  className="font-bold text-[#8B6914] hover:text-[#C9A227] transition-colors decoration-2 underline-offset-4"
+                >
+                  New Customer?{" "}
+                </Link>
+              </p>
+            </div>
           </div>
         </div>
       </div>

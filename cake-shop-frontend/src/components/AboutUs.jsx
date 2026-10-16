@@ -98,7 +98,7 @@ const AboutUs = () => {
       role: "Master Baker & Founder",
       image: "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400",
       shortBio: "15+ years experience in French patisserie",
-      fullBio: "Chef Ramesh discovered his passion for baking in Paris. With over 15 years of experience, he founded CakeZone to bring authentic French techniques to India. He specializes in creating melt-in-your-mouth sponges and perfectly balanced flavors.",
+      fullBio: "Chef Ramesh discovered his passion for baking in Paris. With over 15 years of experience, he founded CakeCraft to bring authentic French techniques to India. He specializes in creating melt-in-your-mouth sponges and perfectly balanced flavors.",
       specialties: ["French Macarons", "Artisanal Breads", "Classic Sponges"]
     },
     {
@@ -137,7 +137,7 @@ const AboutUs = () => {
       name: "Priya Singh",
       location: "Delhi",
       event: "Birthday Celebration",
-      text: "The best cake I've ever ordered! My daughter's birthday was magical because of the beautiful unicorn cake from CakeZone.",
+      text: "The best cake I've ever ordered! My daughter's birthday was magical because of the beautiful unicorn cake from CakeCraft.",
       image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150"
     },
     {
@@ -302,7 +302,7 @@ const AboutUs = () => {
                 <div className="order-2 lg:order-1">
                   <h2 className="cs-display text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#3E2C1C] mb-4 sm:mb-6">From Kitchen to Celebration</h2>
                   <p className="text-[#8B7355] mb-4 sm:mb-6 text-base sm:text-lg">
-                    CakeZone started as a passion project in a small home kitchen in 2018.
+                    CakeCraft started as a passion project in a small home kitchen in 2018.
                     What began with baking cakes for family gatherings quickly grew into
                     a beloved brand known for creating unforgettable moments.
                   </p>

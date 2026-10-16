@@ -799,7 +799,7 @@ const OrderCard = ({ order, canDelete, onView, onFeedback, onCancel, onDelete })
               <div className="flex-1">
                 <div className="cs-display font-bold text-[#3E2C1C] text-lg">Yum! Your order has been delivered</div>
                 <div className="text-sm text-[#8B7355]">
-                  Thank you for choosing CakeZone! We hope you loved every bite.
+                  Thank you for choosing CakeCraft! We hope you loved every bite.
                   {!order.feedbackGiven && " Tell us how it went?"}
                 </div>
               </div>

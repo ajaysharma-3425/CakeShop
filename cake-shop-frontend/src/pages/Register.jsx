@@ -99,7 +99,7 @@ const Register = () => {
             <div className="w-14 h-14 bg-gradient-to-br from-[#C9A227] to-[#D4AF37] rounded-2xl flex items-center justify-center text-3xl shadow-lg border-2 border-[#E8D58A]">
               🎂
             </div>
-            <h1 className="cs-display text-3xl font-extrabold tracking-wide">CakeZone</h1>
+            <h1 className="cs-display text-3xl font-extrabold tracking-wide">CakeCraft</h1>
           </div>
           
           <h2 className="cs-display text-4xl sm:text-5xl font-extrabold leading-tight mb-4">
@@ -141,13 +141,13 @@ const Register = () => {
             <div className="w-16 h-16 bg-gradient-to-br from-[#C9A227] to-[#D4AF37] rounded-2xl flex items-center justify-center text-3xl shadow-lg border-2 border-[#E8D58A] mb-3">
               🎂
             </div>
-            <h1 className="cs-display text-2xl font-extrabold text-[#3E2C1C]">CakeZone</h1>
+            <h1 className="cs-display text-2xl font-extrabold text-[#3E2C1C]">CakeCraft</h1>
             <p className="cs-script text-[#8B6914] mt-1">Sweet Delights, Fresh Every Day</p>
           </div>
 
           <div className="text-center lg:text-left mb-8">
             <h2 className="cs-display text-3xl font-extrabold text-[#3E2C1C] mb-2">Create an Account</h2>
-            <p className="text-[#8B7355] font-semibold">Join CakeZone and start ordering your favorite treats.</p>
+            <p className="text-[#8B7355] font-semibold">Join CakeCraft and start ordering your favorite treats.</p>
           </div>
 
           {/* Error Messages */}

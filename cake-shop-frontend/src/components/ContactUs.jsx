@@ -50,7 +50,7 @@ const SPRINKLES = [
 
 const PHONE_DISPLAY = "+91 98765 43210";
 const PHONE_DIGITS = "919876543210";
-const EMAIL = "hello@cakezone.com";
+const EMAIL = "hello@CakeCraft.com";
 
 const OCCASIONS = [
   { value: "Birthday", emoji: "🎉" },
@@ -164,7 +164,7 @@ const ContactUs = () => {
 
   // opens WhatsApp with the form details already typed in
   const whatsappText = [
-    "Hi CakeZone! 👋",
+    "Hi CakeCraft! 👋",
     formData.name && `I'm ${formData.name}.`,
     formData.occasion && `Occasion: ${formData.occasion}`,
     formData.subject && `Subject: ${formData.subject}`,

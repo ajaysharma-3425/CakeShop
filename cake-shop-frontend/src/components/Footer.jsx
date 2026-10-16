@@ -282,7 +282,7 @@ const Footer = () => {
               </motion.div>
 
               <div>
-                <p className="text-2xl font-bold tracking-tight">CakeZone</p>
+                <p className="text-2xl font-bold tracking-tight">CakeCraft</p>
                 <p className="text-xs text-[#F5E6D3]">
                   Sweet Delights, Fresh Every Day
                 </p>
@@ -317,7 +317,7 @@ const Footer = () => {
                 <MessageCircle className="h-5 w-5" />
               </SocialButton>
 
-              <SocialButton href="mailto:hello@cakezone.com" label="Email">
+              <SocialButton href="mailto:hello@CakeCraft.com" label="Email">
                 <Mail className="h-5 w-5" />
               </SocialButton>
             </div>
@@ -359,8 +359,8 @@ const Footer = () => {
                 +91 98765 43210
               </ContactRow>
 
-              <ContactRow icon={Mail} href="mailto:hello@cakezone.com">
-                hello@cakezone.com
+              <ContactRow icon={Mail} href="mailto:hello@CakeCraft.com">
+                hello@CakeCraft.com
               </ContactRow>
 
               <ContactRow icon={MapPin}>
@@ -383,7 +383,7 @@ const Footer = () => {
           className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/15 pt-6 text-center sm:flex-row sm:text-left"
         >
           <p className="text-xs text-[#F5E6D3] sm:text-sm">
-            © {year} CakeZone. All rights reserved.
+            © {year} CakeCraft. All rights reserved.
           </p>
 
           <p className="flex items-center gap-1.5 text-xs text-[#F5E6D3] sm:text-sm">

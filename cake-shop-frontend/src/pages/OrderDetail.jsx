@@ -62,7 +62,7 @@ const SPRINKLES = [
 
 const PHONE_DISPLAY = "+91 98765 43210";
 const PHONE_DIGITS = "919876543210";
-const SUPPORT_EMAIL = "support@cakezone.com";
+const SUPPORT_EMAIL = "support@CakeCraft.com";
 
 // progress steps (a "pending" status counts as "placed")
 const STEPS = [
@@ -239,7 +239,7 @@ const OrderDetails = () => {
   const customMessage = order.customDetails?.message || order.customDetails?.messageOnCake;
 
   const whatsappHref = `https://wa.me/${PHONE_DIGITS}?text=${encodeURIComponent(
-    `Hi CakeZone! 👋 I need help with my order #${orderCode}.`
+    `Hi CakeCraft! 👋 I need help with my order #${orderCode}.`
   )}`;
 
   return (

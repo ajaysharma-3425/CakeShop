@@ -407,11 +407,8 @@ const Navbar = () => {
               </div>
               <div className="transition-transform duration-300 group-hover:scale-[1.02]">
                 <div className="flex flex-col">
-                  <h1
-                    className={`text-lg md:text-xl lg:text-2xl font-bold tracking-tight ${scrolled ? "text-[#4E342E]" : "text-[#FFF8E7]"
-                      }`}
-                  >
-                    CakeZone
+                  <h1 className={`text-lg md:text-xl lg:text-2xl font-bold tracking-tight ${scrolled ? "text-[#4E342E]" : "text-[#FFF8E7]"}`}>
+                    CakeCraft
                   </h1>
                   <p className={`text-xs mt-0.5 ${scrolled ? "text-[#8B5E3C]" : "text-[#F5E6D3]"}`}>
                     Sweet Delights, Fresh Every Day
