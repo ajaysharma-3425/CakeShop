@@ -444,14 +444,14 @@ const Home = () => {
               <p className="text-[#8B7355] font-semibold">Our bakers are busy. New cakes are coming soon!</p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 gap-3 sm:gap-5 md:gap-6 lg:grid-cols-4 lg:gap-8">
               {featuredCakes.map((cake) => (
                 <Link
                   key={cake._id}
                   to={`/cakes/${cake._id}`}
-                  className="group block bg-[#FFFDF9] rounded-[2rem] shadow-lg shadow-[#E8E0D5]/60 border border-[#E8E0D5] hover:shadow-2xl hover:-translate-y-1.5 hover:border-[#C9A227]/50 transition-all duration-300 overflow-hidden"
+                  className="group block bg-[#FFFDF9] rounded-2xl sm:rounded-[2rem] shadow-lg shadow-[#E8E0D5]/60 border border-[#E8E0D5] hover:shadow-2xl hover:-translate-y-1 sm:hover:-translate-y-1.5 hover:border-[#C9A227]/50 transition-all duration-300 overflow-hidden"
                 >
-                  <div className="relative h-64 overflow-hidden bg-gradient-to-br from-[#F5F0E8] to-[#E8E0D5]">
+                  <div className="relative h-36 sm:h-48 lg:h-64 overflow-hidden bg-gradient-to-br from-[#F5F0E8] to-[#E8E0D5]">
                     {cake.image ? (
                       <img
                         src={cake.image}
@@ -462,7 +462,7 @@ const Home = () => {
                       <div className="w-full h-full flex items-center justify-center text-6xl">🎂</div>
                     )}
                     <span
-                      className={`absolute top-4 left-4 inline-flex items-center px-3 py-1 rounded-full text-xs font-bold border shadow bg-[#FFFDF9]/95 capitalize ${getCategoryColor(
+                      className={`absolute top-2 left-2 sm:top-4 sm:left-4 inline-flex items-center px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-bold border shadow bg-[#FFFDF9]/95 capitalize ${getCategoryColor(
                         cake.category
                       )}`}
                     >
@@ -470,19 +470,19 @@ const Home = () => {
                     </span>
                   </div>
 
-                  <div className="p-6">
-                    <h3 className="cs-display text-xl font-bold text-[#3E2C1C] mb-1 line-clamp-1 group-hover:text-[#8B6914] transition-colors">
+                  <div className="p-3 sm:p-4 lg:p-6">
+                    <h3 className="cs-display text-sm sm:text-lg lg:text-xl font-bold text-[#3E2C1C] mb-1 line-clamp-1 group-hover:text-[#8B6914] transition-colors">
                       {cake.name}
                     </h3>
-                    <p className="text-[#8B7355] text-sm mb-4 line-clamp-2 h-10">
+                    <p className="text-[#8B7355] text-xs sm:text-sm mb-3 sm:mb-4 line-clamp-2 h-8 sm:h-10">
                       {cake.description || "Delicious premium cake"}
                     </p>
-                    <div className="flex items-center justify-between pt-4 border-t-2 border-dashed border-[#E8E0D5]">
-                      <span className="cs-display text-2xl font-extrabold text-[#3E2C1C]">
+                    <div className="flex items-center justify-between gap-2 pt-3 sm:pt-4 border-t-2 border-dashed border-[#E8E0D5]">
+                      <span className="cs-display text-lg sm:text-xl lg:text-2xl font-extrabold text-[#3E2C1C]">
                         <span className="text-[#8B6914]">₹</span>
                         {formatPrice(cake.price)}
                       </span>
-                      <span className="rounded-full bg-[#FDF8E8] px-4 py-2 text-sm font-bold text-[#8B6914] group-hover:bg-gradient-to-r group-hover:from-[#C9A227] group-hover:to-[#D4AF37] group-hover:text-[#2E1B0F] transition-all">
+                      <span className="shrink-0 rounded-full bg-[#FDF8E8] px-2.5 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-sm font-bold text-[#8B6914] group-hover:bg-gradient-to-r group-hover:from-[#C9A227] group-hover:to-[#D4AF37] group-hover:text-[#2E1B0F] transition-all">
                         View Details
                       </span>
                     </div>
@@ -615,14 +615,14 @@ const Home = () => {
                   </button>
                 </div>
               ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3 lg:gap-8">
                   {filteredCakes.slice(0, 6).map((cake) => (
                     <Link
                       key={cake._id}
                       to={`/cakes/${cake._id}`}
-                      className="group block bg-[#FFFDF9] border border-[#E8E0D5] rounded-[1.75rem] overflow-hidden shadow-md shadow-[#E8E0D5]/50 hover:shadow-xl hover:-translate-y-1 hover:border-[#C9A227]/50 transition-all duration-300"
+                      className="group block bg-[#FFFDF9] border border-[#E8E0D5] rounded-2xl sm:rounded-[1.75rem] overflow-hidden shadow-md shadow-[#E8E0D5]/50 hover:shadow-xl hover:-translate-y-1 hover:border-[#C9A227]/50 transition-all duration-300"
                     >
-                      <div className="relative h-52 overflow-hidden bg-gradient-to-br from-[#F5F0E8] to-[#E8E0D5]">
+                      <div className="relative h-32 sm:h-44 lg:h-52 overflow-hidden bg-gradient-to-br from-[#F5F0E8] to-[#E8E0D5]">
                         {cake.image ? (
                           <img
                             src={cake.image}
@@ -633,24 +633,24 @@ const Home = () => {
                           <div className="w-full h-full flex items-center justify-center text-5xl">🎂</div>
                         )}
                         <span
-                          className={`absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold border shadow bg-[#FFFDF9]/95 capitalize ${getCategoryColor(
+                          className={`absolute top-2 left-2 sm:top-3 sm:left-3 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-bold border shadow bg-[#FFFDF9]/95 capitalize ${getCategoryColor(
                             cake.category
                           )}`}
                         >
                           {cake.category || "Regular"}
                         </span>
                       </div>
-                      <div className="p-5">
-                        <h4 className="cs-display text-lg font-bold text-[#3E2C1C] line-clamp-1 group-hover:text-[#8B6914] transition-colors">
+                      <div className="p-3 sm:p-4 lg:p-5">
+                        <h4 className="cs-display text-sm sm:text-base lg:text-lg font-bold text-[#3E2C1C] line-clamp-1 group-hover:text-[#8B6914] transition-colors">
                           {cake.name}
                         </h4>
-                        <p className="text-[#8B7355] text-sm mt-1 mb-4 line-clamp-2">{cake.description}</p>
-                        <div className="flex items-center justify-between">
-                          <span className="cs-display text-xl font-extrabold text-[#3E2C1C]">
+                        <p className="text-[#8B7355] text-xs sm:text-sm mt-1 mb-3 sm:mb-4 line-clamp-2">{cake.description}</p>
+                        <div className="flex items-center justify-between gap-2">
+                          <span className="cs-display text-base sm:text-lg lg:text-xl font-extrabold text-[#3E2C1C]">
                             <span className="text-[#8B6914]">₹</span>
                             {formatPrice(cake.price)}
                           </span>
-                          <span className="text-sm font-bold text-[#8B6914] group-hover:translate-x-1 transition-transform">
+                          <span className="shrink-0 text-xs sm:text-sm font-bold text-[#8B6914] group-hover:translate-x-1 transition-transform">
                             View →
                           </span>
                         </div>
@@ -752,15 +752,15 @@ const Home = () => {
 /* ---------- small building block ---------- */
 
 const SkeletonGrid = ({ count, cols, tall }) => (
-  <div className={`grid grid-cols-1 ${cols} gap-8`}>
+  <div className={`grid grid-cols-2 gap-3 sm:gap-5 lg:gap-8 ${cols}`}>
     {[...Array(count)].map((_, index) => (
       <div
         key={index}
-        className="bg-[#FFFDF9] rounded-[1.75rem] border border-[#E8E0D5] overflow-hidden animate-pulse"
+        className="bg-[#FFFDF9] rounded-2xl sm:rounded-[1.75rem] border border-[#E8E0D5] overflow-hidden animate-pulse"
       >
-        <div className={`${tall ? "h-64" : "h-52"} bg-[#F5F0E8]`}></div>
-        <div className="p-6">
-          <div className="h-6 bg-[#E8E0D5] rounded-full mb-3 w-3/4"></div>
+        <div className={`${tall ? "h-36 sm:h-48 lg:h-64" : "h-32 sm:h-44 lg:h-52"} bg-[#F5F0E8]`}></div>
+        <div className="p-3 sm:p-4 lg:p-6">
+          <div className="h-5 sm:h-6 bg-[#E8E0D5] rounded-full mb-3 w-3/4"></div>
           <div className="space-y-2 mb-4">
             <div className="h-3 bg-[#F5F0E8] rounded-full"></div>
             <div className="h-3 bg-[#F5F0E8] rounded-full w-5/6"></div>

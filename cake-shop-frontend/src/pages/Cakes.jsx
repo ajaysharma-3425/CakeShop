@@ -204,11 +204,11 @@ const Cakes = () => {
             <div className="max-w-2xl mx-auto -mt-20 mb-10">
               <div className="h-14 bg-[#FFFDF9] rounded-full shadow-lg"></div>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3 lg:gap-8">
               {[...Array(PAGE_SIZE)].map((_, index) => (
-                <div key={index} className="bg-[#FFFDF9] rounded-[2rem] border border-[#E8E0D5] overflow-hidden">
-                  <div className="h-64 bg-[#F5F0E8]"></div>
-                  <div className="p-6 space-y-3">
+                <div key={index} className="bg-[#FFFDF9] rounded-2xl sm:rounded-[2rem] border border-[#E8E0D5] overflow-hidden">
+                  <div className="h-36 sm:h-48 lg:h-64 bg-[#F5F0E8]"></div>
+                  <div className="p-3 sm:p-4 lg:p-6 space-y-3">
                     <div className="h-5 bg-[#E8E0D5] rounded-full w-1/3"></div>
                     <div className="h-6 bg-[#F5F0E8] rounded-full w-3/4"></div>
                     <div className="h-4 bg-[#F5F0E8] rounded-full w-full"></div>
@@ -451,7 +451,7 @@ const Cakes = () => {
             )}
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3 lg:gap-8">
             {pagedCakes.map((cake) => (
               <CakeCard key={cake._id} cake={cake} />
             ))}
@@ -557,11 +557,11 @@ const CakeCard = ({ cake }) => {
   };
 
   return (
-    <article className="group relative bg-[#FFFDF9] rounded-[2rem] shadow-lg shadow-[#E8E0D5]/60 border border-[#E8E0D5] hover:shadow-2xl hover:-translate-y-1.5 hover:border-[#C9A227]/50 transition-all duration-300 overflow-hidden">
+    <article className="group relative bg-[#FFFDF9] rounded-2xl sm:rounded-[2rem] shadow-lg shadow-[#E8E0D5]/60 border border-[#E8E0D5] hover:shadow-2xl hover:-translate-y-1 sm:hover:-translate-y-1.5 hover:border-[#C9A227]/50 transition-all duration-300 overflow-hidden min-w-0">
       {/* Cake Image */}
       <Link
         to={`/cakes/${cake._id}`}
-        className="relative block h-64 overflow-hidden bg-[#F5F0E8] p-6"
+        className="relative block h-36 sm:h-48 lg:h-64 overflow-hidden bg-[#F5F0E8] p-2 sm:p-4 lg:p-6"
       >
         <div className="w-full h-full flex items-center justify-center">
           {cake.image && !imageFailed ? (
@@ -582,7 +582,7 @@ const CakeCard = ({ cake }) => {
 
         {/* Category */}
         <span
-          className={`absolute top-4 left-4 inline-flex items-center px-3 py-1 rounded-full text-xs font-bold border shadow bg-[#FFFDF9]/95 capitalize ${getCategoryColor(cake.category)
+          className={`absolute top-2 left-2 sm:top-4 sm:left-4 inline-flex items-center px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-bold border shadow bg-[#FFFDF9]/95 capitalize ${getCategoryColor(cake.category)
             }`}
         >
           {cake.category || "Regular"}
@@ -590,32 +590,32 @@ const CakeCard = ({ cake }) => {
 
         {/* View Details */}
         <div className="absolute inset-x-0 bottom-4 flex justify-center opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 pointer-events-none">
-          <span className="rounded-full bg-[#FFFDF9] px-6 py-2 text-sm font-bold text-[#8B6914] shadow-lg">
+          <span className="rounded-full bg-[#FFFDF9] px-3 sm:px-6 py-1.5 sm:py-2 text-xs sm:text-sm font-bold text-[#8B6914] shadow-lg">
             View Details
           </span>
         </div>
       </Link>
 
       {/* Cake Information */}
-      <div className="p-6">
-        <Link to={`/cakes/${cake._id}`} className="block">
-          <h2 className="cs-display text-xl font-bold text-[#3E2C1C] mb-2 line-clamp-1 hover:text-[#8B6914] transition-colors">
+      <div className="p-3 sm:p-4 lg:p-6">
+        <Link to={`/cakes/${cake._id}`} className="block min-w-0">
+          <h2 className="cs-display text-sm sm:text-lg lg:text-xl font-bold text-[#3E2C1C] mb-1 sm:mb-2 line-clamp-1 hover:text-[#8B6914] transition-colors">
             {cake.name}
           </h2>
 
-          <p className="text-[#8B7355] text-sm mb-5 line-clamp-2 min-h-[40px]">
+          <p className="text-[#8B7355] text-xs sm:text-sm mt-1 mb-3 sm:mb-5 line-clamp-2 min-h-[2rem] sm:min-h-[40px]">
             {cake.description}
           </p>
         </Link>
 
         {/* Price and Action */}
-        <div className="flex items-end justify-between gap-3 pt-4 border-t-2 border-dashed border-[#E8E0D5]">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 pt-3 sm:pt-4 border-t-2 border-dashed border-[#E8E0D5]">
           <Link to={`/cakes/${cake._id}`} className="min-w-0">
             <p className="text-xs font-semibold text-[#8B7355] mb-0.5">
               Starting from
             </p>
 
-            <div className="cs-display text-xl sm:text-2xl font-extrabold text-[#3E2C1C]">
+            <div className="cs-display text-lg sm:text-xl lg:text-2xl font-extrabold text-[#3E2C1C]">
               <span className="text-[#8B6914]">₹</span>
               {formatPrice(cake.price)}
             </div>
@@ -627,7 +627,7 @@ const CakeCard = ({ cake }) => {
               type="button"
               onClick={handleAddToCart}
               disabled={adding || cake.isAvailable === false}
-              className="shrink-0 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#C9A227] to-[#D4AF37] px-3 sm:px-4 py-2.5 text-xs sm:text-sm font-bold text-[#2E1B0F] shadow-md hover:shadow-lg hover:from-[#B8911E] hover:to-[#C9A227] transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+              className="w-full sm:w-auto shrink-0 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#C9A227] to-[#D4AF37] px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm font-bold text-[#2E1B0F] shadow-md hover:shadow-lg hover:from-[#B8911E] hover:to-[#C9A227] transition-all disabled:opacity-60 disabled:cursor-not-allowed"
             >
               <ShoppingCart className="w-4 h-4" />
               {adding ? "Adding..." : "Add to Cart"}
@@ -636,7 +636,7 @@ const CakeCard = ({ cake }) => {
             <button
               type="button"
               onClick={() => navigate("/login")}
-              className="shrink-0 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#C9A227] to-[#D4AF37] px-3 sm:px-4 py-2.5 text-xs sm:text-sm font-bold text-[#2E1B0F] shadow-md hover:shadow-lg transition-all"
+              className="w-full sm:w-auto shrink-0 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#C9A227] to-[#D4AF37] px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm font-bold text-[#2E1B0F] shadow-md hover:shadow-lg transition-all"
             >
               <ShoppingCart className="w-4 h-4" />
               Add to Cart
